@@ -2,20 +2,20 @@
 Santiago González y Álvaro López
 
 ## Bloque A: Análisis de Mercado y Selección (CE a, c)
-Debéis elegir entre Odoo (SaaS o Community), SAP S/4HANA o Zoho One.
-Justifica la elección basándote en el perfil de la empresa (25 empleados, presupuesto ajustado, necesidad de personalización en el etiquetado).
+**Debéis elegir entre Odoo (SaaS o Community), SAP S/4HANA o Zoho One.
+Justifica la elección basándote en el perfil de la empresa (25 empleados, presupuesto ajustado, necesidad de personalización en el etiquetado).**
+
 Hemos elegido Odoo Community ya que, al ser una empresa de 25 empleados con un presupuesto ajustado, el software libre es ideal ya que elimina el tener que pagar por licencias de usuarios.
+
 También permite la personalización del etiquetado y, al ser modular, permite tener integrado inventario, CRM y facturación de manera fluida. Esto elimina la necesidad de información redundante.
-Cálculo de TCO: Realiza una estimación a 3 años. No olvidéis incluir:
+
+**Cálculo de TCO: Realiza una estimación a 3 años. No olvidéis incluir:
 Coste de licencias/suscripción.
 Coste de implantación (vuestras horas de desarrollo: estima 100h a 40€/h).
-Coste operativo (Hosting en Google Cloud, AWS, Huawei Cloud o similar).
+Coste operativo (Hosting en Google Cloud, AWS, Huawei Cloud o similar).**
 
-Concepto
-Detalles
-Coste Año 1
-Coste Año 2
-Coste Año 3
+| Concepto | Detalles | Coste Año 1 | Coste Año 2 | Coste Año 3 |
+|----------|----------|-------------|-------------|-------------|
 Licencias / Suscripción
 Odoo Community
 0€
