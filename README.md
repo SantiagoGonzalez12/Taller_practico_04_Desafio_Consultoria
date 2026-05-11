@@ -49,30 +49,11 @@ Esta parte de lo que se va encargar principalmente es para evitar que se impleme
 
 
 
-
-
-
-
-ROL
-CRUD
-REGLA DE REGISTROS
-JUSTIFICACIÓN
-ADMINISTRADOR
-Tendría el acceso total de todas las áreas, en este caso Ventas, Compras, Almacén, Contabilidad, Ajustes.
-[‘(1, ‘=’,1)] | Acceso Global
-Necesitaremos un control total para la gestión del sistema y una configuración de usuarios de todo el ERP
-COMERCIAL
-Limitado: Ventas y CRM. En este caso solo tendría la lectura de productos
-[‘user_id’, ‘=’, user id | Solo sus propios registros
-Evitamos que pueda ver clientes ajenos y se bloquea automáticamente el acceso a fabricación y facturas de contables.
-OP.ALMACÉN
-Limitado: Inventario y recepciones, en este caso estaría casi igual de limitado que el comercial lectura en productos
-[‘loaction_id’, ‘child_of’, [Hogar]] | Solo su almacén 
-Solo se gestiona stock y el tema de albaranes de la entrada y la salida. No tiene acceso a precios de venta ni datos fiscales.
-CONTABLE
-Limitado: Facturación y Pagos exclusivamente, tendría solo el acceso a la lectura en Contactos
-[‘state’,’!=’, ‘draft’] | Solo facturas validadas
-En esta sección se podra solo gestionar la tesorería de al empresa lo cual tiene n prohibido modificar el stock, evitando asi que descuandren el inventario fisico del almacen 
+| :--- | :--- | :--- | :--- |
+| **Administrador** | **Total:** Ventas, Compras, Almacén, Contabilidad, Ajustes. | `['(1', '=', '1')]` (Acceso Global). | Control total para la gestión del sistema y configuración de usuarios. |
+| **Comercial** | **Limitado:** Ventas y CRM. Lectura de productos. | `['user_id', '=', user.id]` (Solo sus registros). | Evita el acceso a clientes ajenos, facturas contables y costes de fabricación. |
+| **Op. Almacén** | **Limitado:** Inventario y Recepciones. Lectura de productos. | `['location_id', 'child_of', [Hogar]]` (Solo su almacén). | Gestiona stock y albaranes. No tiene acceso a precios de venta ni datos fiscales. |
+| **Contable** | **Limitado:** Facturación y Pagos. Lectura en Contactos. | `['state', '!=', 'draft']` (Solo facturas validadas). | Gestiona la tesorería pero tiene **prohibido modificar stock** para evitar descuadres. |
 
 
 
