@@ -21,6 +21,7 @@ Licencias / Suscripción|Odoo Community|0€|0€|0€|
 |Operativo|Google Cloud|408€|408€|408€|
 |TOTAL||4408€|408€|408€|
 
+<img width="400" height="126" alt="image" src="https://github.com/user-attachments/assets/4482302f-4c37-43f1-b55f-154bea15ee36" />
 
 ## Bloque B: Diseño de Seguridad RBAC (CE f)
 **Diseña la matriz de permisos para los siguientes roles, asegurando el Principio de Mínimo Privilegio:
@@ -28,22 +29,30 @@ Administrador: Acceso total.
 Comercial: Solo ve sus clientes y presupuestos (Record Rules).
 Operario de Almacén: Solo ve stock y albaranes de entrada/salida.
 Contable: Puede mirar facturas pero no puede modificar el stock.**
+
 El diseño que vamos a basarnos es en dos capas de seguridad integradas dentro del ERP:
-Por un lado Grupos de Usuario:
+
+### Por un lado Grupos de Usuario:
 Determinamos si un usuario puede ver el menú de una aplicación ósea para que nosotros entendamos dentro de un ERP sería Contabilidad en comparación con Ventas
-En Segundo Plano tendremos unas Reglas de Registro:
- Esto es como si fuera un filtro bastante dinámico. No basta con entrar en el apartado de ventas, lo que nos vamos a encargar en primer lugar es que esté regla de registro asegure que si el Comercial A no vea las ventas de su compañero el Comercial B.  
-Seguridad Transversal:
+
+### En Segundo Plano tendremos unas Reglas de Registro:
+Esto es como si fuera un filtro bastante dinámico. No basta con entrar en el apartado de ventas, lo que nos vamos a encargar en primer lugar es que esté regla de registro asegure que si el Comercial A no vea las ventas de su compañero el Comercial B.  
+
+### Seguridad Transversal:
 Esta parte de lo que se va encargar principalmente es para evitar que se implemente un comercial, se asome por ejemplo se asome a costes de producción o a contabilidad, protegiendo así el margen de beneficio de la empresa 
 
+<img width="2595" height="1657" alt="image" src="https://github.com/user-attachments/assets/442d37a5-ae18-4271-ae4c-794c092a52be" />
 
 
+| Rol | ¿Qué puede hacer? (CRUD) | Regla de Registro (Filtro) | Justificación |
 | :--- | :--- | :--- | :--- |
-| **Administrador** | **Total:** Ventas, Compras, Almacén, Contabilidad, Ajustes. | `['(1', '=', '1')]` (Acceso Global). | Control total para la gestión del sistema y configuración de usuarios. |
-| **Comercial** | **Limitado:** Ventas y CRM. Lectura de productos. | `['user_id', '=', user.id]` (Solo sus registros). | Evita el acceso a clientes ajenos, facturas contables y costes de fabricación. |
-| **Op. Almacén** | **Limitado:** Inventario y Recepciones. Lectura de productos. | `['location_id', 'child_of', [Hogar]]` (Solo su almacén). | Gestiona stock y albaranes. No tiene acceso a precios de venta ni datos fiscales. |
-| **Contable** | **Limitado:** Facturación y Pagos. Lectura en Contactos. | `['state', '!=', 'draft']` (Solo facturas validadas). | Gestiona la tesorería pero tiene **prohibido modificar stock** para evitar descuadres. |
+| **Administrador** | Tendría el acceso total de todas las áreas, en este caso Ventas, Compras, Almacén, Contabilidad, Ajustes. | `['(1', '=', '1')]` | Necesitaremos un control total para la gestión del sistema y una configuración de usuarios de todo el ERP |
+| **Comercial** | Limitado: Ventas y CRM. En este caso solo tendría la lectura de productos | `['user_id', '=', user.id]` |Evitamos que pueda ver clientes ajenos y se bloquea automáticamente el acceso a fabricación y facturas de contables. |
+| **Op. Almacén** | Limitado: Inventario y recepciones, en este caso estaría casi igual de limitado que el comercial lectura en productos | `['location_id', 'child_of', [Hogar]]` |Solo se gestiona stock y el tema de albaranes de la entrada y la salida. No tiene acceso a precios de venta ni datos fiscales. |
+| **Contable** | Limitado: Facturación y Pagos exclusivamente, tendría solo el acceso a la lectura en Contactos | `['state', '!=', 'draft']` |En esta sección se podra solo gestionar la tesorería de al empresa lo cual tiene n prohibido modificar el stock, evitando asi que descuandren el inventario fisico del almancen |
 
+
+<img width="1110" height="364" alt="image" src="https://github.com/user-attachments/assets/8dc86a56-1fcb-4995-a331-2e3ecabbbf1b" />
 
 
 
