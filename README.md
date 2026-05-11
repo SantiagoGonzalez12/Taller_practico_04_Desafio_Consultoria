@@ -17,20 +17,9 @@ Coste operativo (Hosting en Google Cloud, AWS, Huawei Cloud o similar).**
 | Concepto | Detalles | Coste Año 1 | Coste Año 2 | Coste Año 3 |
 |----------|----------|-------------|-------------|-------------|
 Licencias / Suscripción|Odoo Community|0€|0€|0€|
-Implantación
-100h x 40€/h
-4000€
-0€
-0€
-Operativo
-Google Cloud
-408€
-408€
-408€
-TOTAL
-4408€
-408€
-408€
+|Implantación|100h x 40€/h|4000€|0€|0€|
+|Operativo|Google Cloud|408€|408€|408€|
+|TOTAL||4408€|408€|408€|
 
 
 Bloque B: Diseño de Seguridad RBAC (CE f)
