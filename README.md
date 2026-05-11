@@ -22,12 +22,12 @@ Licencias / Suscripción|Odoo Community|0€|0€|0€|
 |TOTAL||4408€|408€|408€|
 
 
-Bloque B: Diseño de Seguridad RBAC (CE f)
-Diseña la matriz de permisos para los siguientes roles, asegurando el Principio de Mínimo Privilegio:
+## Bloque B: Diseño de Seguridad RBAC (CE f)
+**Diseña la matriz de permisos para los siguientes roles, asegurando el Principio de Mínimo Privilegio:
 Administrador: Acceso total.
 Comercial: Solo ve sus clientes y presupuestos (Record Rules).
 Operario de Almacén: Solo ve stock y albaranes de entrada/salida.
-Contable: Puede mirar facturas pero no puede modificar el stock.
+Contable: Puede mirar facturas pero no puede modificar el stock.**
 El diseño que vamos a basarnos es en dos capas de seguridad integradas dentro del ERP:
 Por un lado Grupos de Usuario:
 Determinamos si un usuario puede ver el menú de una aplicación ósea para que nosotros entendamos dentro de un ERP sería Contabilidad en comparación con Ventas
